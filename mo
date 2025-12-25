@@ -1,34 +1,33 @@
 pipeline {
-    agent any  // هذا يعني أن Jenkins يمكنه تشغيل الـ pipeline على أي جهاز متاح
+    agent any  // Jenkins يشغّل الـ pipeline على أي Agent متاح
 
     stages {
-        // مرحلة تنزيل الملفات من مستودع Git
+
+        // مرحلة تنزيل الكود من Git
         stage('Checkout') {
             steps {
-                git branch: 'dev',  // اختر الفرع الصحيح الذي يحتوي على الملف mo
+                git branch: 'dev',
                     url: 'https://github.com/moahmedabdelsattar/Jenkinsfile.git',
-                    credentialsId: 'github'  // تأكد من أن بيانات الاعتماد صحيحة
+                    credentialsId: 'github'
             }
         }
 
         // مرحلة تشغيل السكربت
         stage('Run Script') {
             steps {
-                // تأكد من منح صلاحيات التنفيذ للملف mo
-                sh 'chmod +x mo.sh'  // منح صلاحيات التنفيذ للملف
-
-                // تنفيذ السكربت
-                sh './mo.sh  // تشغيل السكربت
+                sh 'chmod +x mo.sh'
+                sh './mo.sh'
             }
         }
+
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully!'  // إذا نجح السكربت
+            echo 'Pipeline completed successfully!'
         }
         failure {
-            echo 'Pipeline failed!'  // إذا فشل السكربت
+            echo 'Pipeline failed!'
         }
     }
 }
