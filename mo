@@ -2,38 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Hello World') {
             steps {
-                // تأكد من أنك تسحب الفرع الصحيح
-                git branch: 'dev',  // استخدم اسم الفرع الجديد هنا
-                    url: 'https://github.com/moahmedabdelsattar/Jenkinsfile.git',
-                    credentialsId: 'github'  // تأكد من أن بيانات الاعتماد صحيحة
+                echo 'Hello World'
             }
         }
 
-        stage('Check Current Directory') {
+        stage('Hello Jenkins') {
             steps {
-                // اعرض المسار الحالي والمحتويات للتحقق من مكان الملف
-                sh 'pwd'  // عرض المسار الحالي
-                sh 'ls -l'  // عرض الملفات في المجلد الحالي
+                echo 'Hello Jenkins'
             }
-        }
-
-        stage('Run Hello World') {
-            steps {
-                // منح صلاحيات التنفيذ للملف mo.sh
-                sh 'chmod +x mo'  // منح صلاحيات التنفيذ للملف
-                sh './mo'  // تنفيذ السكربت
-            }
-        }
-    }
-
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
         }
     }
 }
