@@ -13,8 +13,8 @@ pipeline {
         stage('Run Hello World') {
             steps {
                 sh 'ls -l'
-                sh 'chmod +x hello.sh'
-                sh './hello.sh'
+                sh 'chmod +x mo.sh'
+                sh './mo.sh'
             }
         }
     }
