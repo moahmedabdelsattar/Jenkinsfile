@@ -15,8 +15,8 @@ pipeline {
         // مرحلة تشغيل السكربت
         stage('Run Script') {
             steps {
-                sh 'chmod +x mo'
-                sh './mo'
+                sh 'chmod +x hello.sh'
+                sh './hello.sh'
             }
         }
 
