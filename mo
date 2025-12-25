@@ -5,8 +5,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 // تأكد من أنك تسحب الفرع الصحيح
-                git branch: 'my-feature-branch',  // استخدم اسم الفرع الجديد هنا
-                    url: 'https://github.com/yourusername/your-repository.git',
+                git branch: 'dev',  // استخدم اسم الفرع الجديد هنا
+                    url: 'https://github.com/moahmedabdelsattar/Jenkinsfile.git',
                     credentialsId: 'github'  // تأكد من أن بيانات الاعتماد صحيحة
             }
         }
@@ -22,8 +22,8 @@ pipeline {
         stage('Run Hello World') {
             steps {
                 // منح صلاحيات التنفيذ للملف mo.sh
-                sh 'chmod +x mo.sh'  // منح صلاحيات التنفيذ للملف
-                sh './mo.sh'  // تنفيذ السكربت
+                sh 'chmod +x mo'  // منح صلاحيات التنفيذ للملف
+                sh './mo'  // تنفيذ السكربت
             }
         }
     }
