@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t ${APP_NAME}:v-${BUILD_NUMBER} .'
+                    sh 'docker build -t ${APP_NAME}:${BUILD_NUMBER} .'
                 }
             }
         }
