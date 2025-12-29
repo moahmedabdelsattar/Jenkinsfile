@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        APP_NAME = 'web'
+        APP_NAME = 'web1'
         REPO_URL ="https://github.com/moahmedabdelsattar/Jenkinsfile.git"
     }
 
