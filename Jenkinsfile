@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        APP_NAME = 'web-app'
-        REPO_URL ="https://github.com/MohamedMagdy840/jenkins-repo.git"
+        APP_NAME = 'Web'
+        REPO_URL ="https://github.com/moahmedabdelsattar/Jenkinsfile.git"
     }
 
     stages {
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t ${APP_NAME}:${BUILD_NUMBER} .'
+                    sh 'docker build -t ${APP_NAME}:v-${BUILD_NUMBER} .'
                 }
             }
         }
